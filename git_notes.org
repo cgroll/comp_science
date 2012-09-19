@@ -1,4 +1,4 @@
-#+TITLE Learning Git
+#+TITLE: Learning Git
 
 * Highlights
 * Capture notes
@@ -61,11 +61,60 @@ git config --global merge.tool meld
 #+end_src
 
 ** Git Basics
-*** create git repository for existing files in project folder
+*** create git repository for existing files
 - go to project directory
 - starting to track an existing project: create subdirectory named
   .git
+- add existing files
+- commit project
 #+begin_src sh
 git init
+git add *.org
+git commit -m 'first project commit'
 #+end_src
+
+*** Cloning an Existing Repository
+- git clone: Git receives a copy of nearly all data that the server has
+- clone the repository into a directory named something other than
+  grit: 
+#+begin_src sh
+git clone git://github.com/schacon/grit.git mygrit
+#+end_src
+
+*** git workflow
+- determine files' state:
+#+begin_src sh
+git status
+#+end_src
+- git add
+  - stages untracked file with snapshot of file at time that adding did occur
+  - also stages files that are already tracked
+- ignore files: don’t automatically add or show untracked
+  (automatically generated files such as log files)
+- create .gitignore file
+- example: ignore files ending in .o or .a (object and archive files)
+  and files that end with a tilde (~)
+#+begin_src sh
+$ cat .gitignore
+*.[oa]
+*~
+#+end_src
+- example: file contents of .gitignore file 
+#+begin_src file_content
+# a comment - this is ignored
+*.a       # no .a files
+!lib.a    # but do track lib.a, even though you're ignoring .a files above
+/TODO     # only ignore the root TODO file, not subdir/TODO
+build/    # ignore all files in the build/ directory
+doc/*.txt # ignore doc/notes.txt, but not doc/server/arch.txt
+#+end_src
+- to see what you’ve changed but not yet staged:
+#+begin_src sh
+git diff
+#+end_src
+- to see what you’ve staged that will go into your next commit:
+#+begin_src sh
+git diff --cached
+#+end_src
+
 
