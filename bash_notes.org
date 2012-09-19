@@ -1,0 +1,100 @@
+#+EXPORTS CODE
+Bash commands and syntax
+
+This file contains instructions regarding the most important bash
+commands.
+
+* history
+- repeat last command containing given function:
+  - use "!"
+  - example: repeat last search with find
+#+begin_src bash
+!find
+#+end_src
+
+* alias
+To enable abbreviations for often used commands, create an alias.
+
+* wget
+Download homepage to current directory.
+- download webpage and linked pages to current directory
+#+begin_src bash
+wget -r www.url...
+#+end_src
+
+- download site, together with all links to extern (-H) and intern
+  (-r) pages of level 1, with internet addresses converted to local
+  links (-k), and images included (-p)
+#+begin_src bash
+wget -H -r --level=1 -k -p www.url...
+#+end_src
+  
+
+* remove files - rm
+- remove all files and subdirectories
+#+begin_src bash
+rm -r `ls`
+#+end_src  
+
+* show directory in hierarchical structure - tree
+
+* permissions - chmod
+
+* list files - ls
+- list files with type: -F
+- list hidden files also: -a
+
+* searching for files - find
+Find files that match a given pattern and possibly act on them.
+- case insensitive: include "i" as in -iname
+
+- find all files in instructions directory with name containing '_instr'
+#+begin_src bash
+find ~/efficient_workspace/instructions/ -iname '*_instr*'
+#+end_src
+
+- find all files modified in the last 24 hours 
+#+begin_src bash
+find $HOME -mtime 0
+#+end_src
+
+** acting on search results
+There are different ways to act on search results:
+- use pipes
+- use xargs 
+- use -exec
+- use backquotes
+
+- delete files with name containing '_instr'
+#+begin_src bash
+rm `find ~/efficient_workspace/instructions/ -iname '*_instr*'`
+#+end_src
+#+begin_src bash
+find ~/efficient_workspace/instructions/ -iname '*_instr*' -exec rm
+#+end_src
+
+- find symbolic links and show respective link target files
+#+begin_src bash
+find . -type l -print | xargs ls -ld | awk '{print $10}'
+#+end_src
+
+- find last modified files, excluding hidden directories
+  - note: for some reason this does not exlcude ~/.local !!!
+#+begin_src bash
+find . -mmin -15 \( ! -regex ".*/\..*" \)
+#+end_src
+
+- substitute space with underscore in file names
+#+begin_src bash
+find . -type f -iname “*.mp3″ -exec rename “s/ /_/g” {} \;
+#+end_src
+* searching within files - grep
+
+* emacs
+- open file in existing emacs session
+#+begin_src bash
+emacsclient ~/org/todo.org
+#+end_src
+
+* eshell
+- delete all output of last command: C-c C-o

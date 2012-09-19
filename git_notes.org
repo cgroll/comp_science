@@ -1,0 +1,71 @@
+#+TITLE Learning Git
+
+* Highlights
+* Capture notes
+* Resources
+
+* [[http://git-scm.com/book][Pro Git Book]]
+These are the notes for the freely available book "Pro Git".
+
+** Getting started
+- Version control is a system that records changes to a file or set of
+  files over time so that you can recall specific versions later
+- Centralized version control: If that server goes down for an hour,
+  then during that hour nobody can collaborate at all or save
+  versioned changes to anything 
+- Every time you commit, or save the state of your project in Git, it
+  basically takes a picture of what all your files look like
+- Git doesn’t need to go out to the server to get the history
+- If you get on an airplane or a train and want to do a little work,
+  you can commit happily until you get to a network connection to
+  upload.
+- Git has three main states that your files can reside in: committed,
+  modified, and staged.
+- *Committed*: data is safely stored in your local database
+- *Modified*: changed file, but not committed to database yet.
+- *Staged*: marked modified file in its current version to go into next
+  commit snapshot.
+- Git directory :: where Git stores the metadata and object database 
+- working directory :: a single checkout of one version of the project
+     placed on disk for you to use or modify
+- staging area :: a simple file that stores information about what
+                  will go into your next commit
+*** installation:
+- instructions of book differed in step "grab latest snapshot from http://git-scm.com/download"
+- simply used installation for linux recommended on webpage
+#+begin_src sh
+sudo apt-get install git-core
+#+end_src
+- consequence: no influence on installation file path
+- git not installed as git-repository?
+- configure git: for
+  - complete system
+  - complete user
+  - individual repository only
+- create .gitconfig file for user configuration
+#+begin_src sh
+git config --global user.name "John Doe"
+git config --global user.email johndoe@example.com
+git config --global core.editor emacs
+git config --global merge.tool meld
+#+end_src
+- leading to following file content
+#+begin_src file_content
+[user]
+	name = John Doe
+	email = johndoe@example.com
+[core]
+	editor = emacs
+[merge]
+	tool = meld
+#+end_src
+
+** Git Basics
+*** create git repository for existing files in project folder
+- go to project directory
+- starting to track an existing project: create subdirectory named
+  .git
+#+begin_src sh
+git init
+#+end_src
+
