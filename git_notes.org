@@ -116,5 +116,40 @@ git diff
 #+begin_src sh
 git diff --cached
 #+end_src
-
+- git diff by itself doesn’t show all changes made since your last
+  commit — only changes that are still unstaged
+- Skipping the Staging Area: with -a option to the git commit command
+  Git automatically stages every file that is already tracked, letting
+  you skip the git add part
+- removing files: git rm command also removes the file from your
+  working directory
+- If you modified the file and added it to the index already, you must
+  force the removal with the -f option
+- keep the file in your working tree but remove it from your staging
+  area: use the --cached option
+#+begin_src sh
+git rm --cached readme.txt
+#+end_src
+- If you rename a file in Git, no metadata is stored in Git that tells
+  it you renamed the file. To rename a file in Git,  run something
+  like
+#+begin_src sh
+git mv file_from file_to
+#+end_src
+- Viewing the Commit History: git log
+- options -p: show the diff introduced in each commit 
+- you can also limit the output to only the last n entries
+#+begin_src sh
+git log -p -2
+#+end_src
+- the --stat option prints below each commit entry a list of modified
+  files, how many files were changed, and how many lines in those
+  files were added and removed
+- log option called --graph. This option adds a nice little ASCII
+  graph showing your branch and merge history
+- show commits made in the last two weeks:
+#+begin_src sh
+git log --since=2.weeks
+#+end_src
+- Using a GUI to Visualize History: e.g. gtk 
 
