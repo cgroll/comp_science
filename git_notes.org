@@ -226,4 +226,42 @@ git commit -m 'initial commit of my project'
 [2012-09-20 Do 10:37]
 
 (set (make-local-variable 'org-refile-targets) (quote (("~/comp_science/notes/git_notes.org" :maxlevel . 1))))
+** test work computer committing
+this should appear
+** install magit
 
+
+* Magit
+** Status
+M-x magit-status:
+- within a Git repository, it will switch to the status buffer of that repository
+- Otherwise, it will prompt for a directory
+  - directory that is not a Git repository: ask whether to create one
+  - 
+- refresh status buffer: g
+- 
+
+** Untracked files
+- add untracked file with s
+- ignore untracked file with i (adds filename to .gitignore)
+- ask for file to ignore: C-u i
+- add file to .git/info/exclude: I
+- delete untracked file: k
+
+** Staging and Committing
+- if staging area is ignored, show uncomitted changes as "Changes"
+- committing:
+  - pop up buffer to write change description: c
+  - finish description and commit: C-c C-c
+
+** History
+- show history with l
+- pop up more information about commit: RET
+- apply current commit to current branch: a 
+  (useful when browsing history of other branch: applying selected bug fixes)
+- show differences from current commit and marked commit: =
+- mark commit: ..
+- unmark commit: .
+
+** Reflogs
+- 
