@@ -98,3 +98,12 @@ emacsclient ~/org/todo.org
 
 * eshell
 - delete all output of last command: C-c C-o
+
+* Captured notes
+** create symbolic link - ln
+Location of files comes first, then folder where symbolic link to
+files shall be included.
+#+begin_src sh
+ln –s file/folder_path link_path
+#+end_src
+[2012-09-21 Fr 15:42]

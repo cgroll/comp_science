@@ -1,0 +1,70 @@
+#; -*- eval: (setq org-refile-targets (quote (("~/comp_science/notes/ubuntu_notes.org" :maxlevel . 1)))); -*-
+#+TITLE: Ubuntu Installation
+
+The chronological start point of this notes file is the idea of
+installing ubuntu as second (third) OS on the computer in my
+office. Hence, chronologically, I first tackle the installation and
+configuration of Ubuntu.
+
+* Installation
+Installation of Ubuntu did itself not make any problems. The course of
+action was as follows:
+- download Ubuntu desktop version (note: version number can impose
+  problems, see below)
+- use Startup Disk Creator ([[http://www.ubuntu.com/download/help/create-a-usb-stick-on-ubuntu][Ubuntu on USB Stick]])
+- boot work computer from USB Stick (F12 -> boot menu)
+
+** Problem
+Only peculiarity was:
+- when pushing downloaded Ubuntu on stick, I was asked for sudo
+  password to transfer some bootloader files
+- when trying to install Ubuntu, fatal error occurred, since
+  bootloader couldn't be installed
+** Solution - considerations
+Seems like the old system (where the USB-stick is created) needs to
+incorporate something as well as. Hence, this could lead to problems,
+whenever system version differs from USB-stick version. One therefore
+could be forced to use only the same version as on the other system as
+well. In compliance with that, the first attempt with a newer version
+did not succeed, while using the same version number did work.
+* Customizations
+Each time when at new installation, some customizations have to be
+done.
+** Replace Caps Lock
+- system settings
+- keyboard
+- on typing: layout settings
+- options
+- Ctrl key position -> Caps Lock as Ctrl
+** Local settings: language
+Problem: some software makes use of system-wide language settings. For
+example, with German, R did show messages in console in
+German. However, one emacs extension (R debugger) did build on
+searching the signal work "error", which never was found, since it
+said "Fehler" for me.
+** System shortcuts: fast emacs access
+** Firemacs
+Emacs keyboard shortcuts for firefox
+* Install additional programs
+** Dropbox
+Install dropbox via command line (www.dropbox.com/install), and set
+symbolic links to personal files.
+** Okular
+** Mendeleydesktop
+** JabRef
+** 
+* Removing Ubuntu with windows ( [[http://www.youtube.com/watch?v%3DAAWBZq04Izc][video tutorial]] )
+In order to remove Ubuntu completely, two steps are necessary. First,
+Ubuntu has to be removed, and second, the GNU Grub bootloader has to
+be removed. The Grub bootloader is the menu which appears at startup
+and let's you choose your operating system. However, when you plan to
+stay with a dual operating system setting, the GNU Grub needs not be
+removed. 
+** Removing systems other than windows
+- right click on computer (Arbeitsplatz)
+- manage (verwalten)
+- delete partitions associated with other operating systems
+  - this of course is the critical step, since choosing the wrong
+    partition inrevertably would kill your data!
+** Removing Grub
+- this could be done with a program called EasyBCD

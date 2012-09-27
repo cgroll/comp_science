@@ -1,7 +1,7 @@
+#; -*- eval: (setq org-refile-targets (quote (("~/comp_science/notes/git_notes.org" :maxlevel . 1)))); -*-
 #+TITLE: Learning Git
 
 * Highlights
-* Capture notes
 * Resources
 
 * [[http://git-scm.com/book][Pro Git Book]]
@@ -152,4 +152,78 @@ git log -p -2
 git log --since=2.weeks
 #+end_src
 - Using a GUI to Visualize History: e.g. gtk 
+
+* github
+To connect your local repository to your GitHub account, you will need
+to set a remote for your repo and push your commits to it:
+#+begin_src sh
+git remote add origin https://github.com/username/Hello-World.git
+# Creates a remote named "origin" pointing at your GitHub repo
+
+git push origin master
+# Sends your commits in the "master" branch to GitHub
+#+end_src
+
+* Repos, branches and forks
+Different user requirements:
+1. completely passively use head of project or last stable version
+2. use head of project or last stable version, with additional
+   external customizations
+3. use externally maintained project with updates, but repeatedly
+   incorporate passages of own customizations
+4. use externally maintained project with updates, and contribute via branches
+5. maintain project alone
+6. maintain project together with co-workers
+
+* Git repos 
+** emacs-repo
+structure:
+- private files outside of repo
+- emacs extensions
+  - sometimes as repos itself, with stable branch
+- standard configuration files: as org files
+- fork: for computer specific settings
+- long-term: fork to emacs-god!
+** emacs extensions
+- auto-complete/auto-complete
+- JuliaLang/julia
+- emacs-ess/ESS -> development branch 
+* Forking into John Wiegley
+** manually downloaded packages
+- use-package
+- yasnippet
+- haskell-config
+
+
+#+begin_latex
+  \sqrt{2}=x_2 + x⁴
+#+end_latex
+
+forking could allow 
+- for switching between wl new and old?!
+- trying new settings of configuration file
+* Captured notes
+** installing git 
+ #+begin_src sh
+$ tar -zxf git-1.7.2.2.tar.gz
+$ cd git-1.7.2.2
+$ make prefix=/usr/local all
+$ sudo make prefix=/usr/local install
+#+end_src 
+
+[2012-09-20 Do 10:32]
+** 2nd test note 
+#+begin_src sh
+http://git-scm.com/download
+#+end_src 
+[2012-09-20 Do 10:34]
+** git note from w3m
+#+begin_src sh
+git add README test.rb LICENSE
+git commit -m 'initial commit of my project'
+#+end_src 
+[[http://git-scm.com/book/en/Git-Branching-What-a-Branch-Is][Git]]
+[2012-09-20 Do 10:37]
+
+(set (make-local-variable 'org-refile-targets) (quote (("~/comp_science/notes/git_notes.org" :maxlevel . 1))))
 
