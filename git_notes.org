@@ -175,6 +175,35 @@ Different user requirements:
 5. maintain project alone
 6. maintain project together with co-workers
 
+* [[http://www.vogella.com/articles/Git/article.html][Git tutorial]]
+To make pushing to remote repositories easier and to avoid unnecessary commits, you can use the following commands.
+
+# Set default so that all changes are always pushed to the repository
+git config --global push.default "matching"
+# Set default so that you avoid unnecessary commits
+git config --global branch.autosetuprebase always 
+
+# Configure Git to use this file
+# as global .gitignore
+
+git config --global core.excludesfile ~/.gitignore 
+
+# Initialize the local Git repository
+git init
+# Add all (files and directories) to the Git repository
+git add .
+
+# Commit the changes, -a will commit changes for modified files
+# but will not add automatically new files
+git commit -a -m "These are new changes" 
+
+The git amend command makes it possible to change the last commit
+message.
+
+# Copy one of the older commits and checkout the older revision via 
+git checkout commit_name 
+
+
 * Git repos 
 ** emacs-repo
 structure:
@@ -188,6 +217,11 @@ structure:
 - auto-complete/auto-complete
 - JuliaLang/julia
 - emacs-ess/ESS -> development branch 
+
+* Magit
+** Installation
+- download latest tarball on github
+- 
 * Forking into John Wiegley
 ** manually downloaded packages
 - use-package
