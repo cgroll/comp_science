@@ -1,4 +1,3 @@
-#; -*- eval: (setq org-refile-targets (quote (("~/comp_science/notes/ubuntu_notes.org" :maxlevel . 1)))); -*-
 #+TITLE: Ubuntu Installation
 
 The chronological start point of this notes file is the idea of

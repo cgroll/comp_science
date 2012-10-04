@@ -1,4 +1,3 @@
-#; -*- eval: (setq org-refile-targets (quote (("~/comp_science/notes/git_notes.org" :maxlevel . 1)))); -*-
 #+TITLE: Learning Emacs
 
 

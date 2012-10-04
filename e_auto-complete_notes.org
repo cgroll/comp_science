@@ -20,3 +20,4 @@ cp *.el *.elc ~/.emacs.d/auto-complete
 #+begin_src sh
 cp -r dict ~/.emacs.d/auto-complete 
 #+end_src
+
