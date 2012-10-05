@@ -1,0 +1,124 @@
+#+TITLE: Installation instructions
+
+The file lists all steps required to come up with my complete
+workspace settings. The main efficiency of the procedure comes from
+the fact that I make heavily use of central file management, so that
+my system settings are stored in two public git-repos and a private
+dropbox folder. 
+
+As the complete setup can be installed easily alongside any existing
+operating system, it is highly suitable for temporary trial. The
+complete setup should be working in less than two hours, and can be
+completely removed from the system within a few mouse clicks.
+
+Hence, do not be afraid to try!
+
+* TODO Enable workspace configuration without private dropbox files
+One main goal for the future is to create installation instructions
+that avoid all my private data files, but come up with a completely
+working similar working environment, too. This could be used to set
+up an identical environment for others.
+Therefore, I should make too public dropbox folders similarly to my
+own private data files, containing some examblary settings.
+
+
+
+* Ubuntu installation
+The installation described will use Ubuntu alongside an existing
+Windows installation. 
+- press F12 on computer startup to get to boot menu
+- start system from USB stick
+- check "download updates" and "install third-party software"
+- check "install alongside"
+
+** Adjusting Ubuntu system settings
+- make Caps lock an alternative Ctrl key: system settings / keyboard
+  layout
+- remove system shortcuts to enable their usage in emacs: system
+  settings / keyboard
+  - C-M-d
+  - C-M-cursor (left, right, ...)
+  - Alt-L
+  - Alt-Space
+
+* Install additional software
+** Git
+via console:
+#+BEGIN_SRC sh  
+  sudo apt-get install git-core
+#+END_SRC
+** w3m
+via Software Center, install
+- w3m
+- w3m-el
+** dropbox
+via Software Center
+- restart Nautilus
+- if dialog pops up:
+  - install dropbox correctly
+  - copy-paste instructions from webpage
+** emacs
+** firemacs
+via browser: firefox addon
+** okular
+** mendeley desktop
+via homepage: links to Software Center
+** gnutls
+via Software Center, install "gnutls-bin". This is required to savely
+connect to some email providers. For example, my work email address
+is handled by LRZ, and I was not able to send mails without this
+additional installation.
+
+* Install Emacs extensions
+** org-mode
+- download tar file from orgmode.org
+- in ~/Downloads/ folder:
+#+BEGIN_SRC sh  
+  tar -xf org-7.9.2.tar.gz
+  rm org-7.9.2.tar.gz
+#+END_SRC
+- change into extracted folder
+#+BEGIN_SRC sh  
+  sudo make install
+  sudo rm -r org-7.9.2
+#+END_SRC
+** ESS
+- download tar file from webpage
+- change directory to download folder
+- extract to /usr/share/emacs/site-lisp/ directory:
+#+BEGIN_SRC sh
+  sudo tar -xf ess.tar.gz -C /usr/share/emacs/site-lisp/
+#+END_SRC
+- option -C is necessary to extract to folder other than current
+  directory 
+** magit
+- download tar from github
+- extract tar
+- change directory to extracted folder
+#+BEGIN_SRC sh
+  make && sudo make install
+#+END_SRC
+- delete tar and extracted folder
+* Get emacs settings
+- if required, create .emacs.d directory in home directory
+#+BEGIN_SRC sh
+  mkdir .emacs.d
+#+END_SRC
+- change directory to .emacs.d
+- clone git repository
+#+BEGIN_SRC sh
+  git clone https://github.com/cgroll/dot_emacs.d.git .
+#+END_SRC
+- set symbolic links to personal data files
+#+BEGIN_SRC sh
+  ln -s ~/Dropbox/personal_data/ntb_dot_files/.authinfo
+  ln -s ~/Dropbox/personal_data/ntb_dot_files/.gnus
+  ln -s ~/Dropbox/personal_data/ntb_dot_files/.bbdb
+  ln -s ~/Dropbox/personal_data/org/
+#+END_SRC
+* Get software knowledge database
+- go to home directory
+#+BEGIN_SRC sh
+  git clone https://github.com/cgroll/comp_science
+#+END_SRC
+
