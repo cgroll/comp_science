@@ -162,6 +162,41 @@ git remote add origin https://github.com/username/Hello-World.git
 git push origin master
 # Sends your commits in the "master" branch to GitHub
 #+end_src
+** Create github-repo for existing directory
+Short instructions to the following situation: an already existing
+directory shall captured by a git repository with remote repo stored
+at github.
+
+Problem: 
+The easiest way to get a repo with remote backup on github is just
+creating a repo on github, and cloning it to local folder. This
+approach, however, does not work, if the local folder already
+contains files, since there would be no guarantee, that files
+downloaded from repo do not overwrite existing local files with equal
+file name. Hence, there are two solutions:
+- temporaly move local files to different folder, create new github
+  repo, clone it to local folder, move local files back to original
+  location and add them to git repo
+- a cleaner solution definitely is to create local git repo, and add
+  remote location afterwards. This, however, is more complicated, as
+  the computer first has to be granted access to write to github, and
+  therefore has to connect via ssh first.
+
+*** Instructions
+If local directory does not yet have git repo:
+- go to local directory
+- create git repo, add all files and commit:
+#+BEGIN_SRC sh
+  git init
+  git add .
+  git commit -m "first commit"
+#+END_SRC
+- create github repo without README file
+- add remote repo and push
+#+BEGIN_SRC sh
+  git remote add origin https://github.com/cgroll/dot_emacs.d.git
+  git push origin master
+#+END_SRC
 
 * Repos, branches and forks
 Different user requirements:
@@ -217,51 +252,6 @@ structure:
 - JuliaLang/julia
 - emacs-ess/ESS -> development branch 
 
-* Magit
-** Installation
-- download latest tarball on github
-- 
-* Forking into John Wiegley
-** manually downloaded packages
-- use-package
-- yasnippet
-- haskell-config
-
-
-#+begin_latex
-  \sqrt{2}=x_2 + x⁴
-#+end_latex
-
-forking could allow 
-- for switching between wl new and old?!
-- trying new settings of configuration file
-* Captured notes
-** installing git 
- #+begin_src sh
-$ tar -zxf git-1.7.2.2.tar.gz
-$ cd git-1.7.2.2
-$ make prefix=/usr/local all
-$ sudo make prefix=/usr/local install
-#+end_src 
-
-[2012-09-20 Do 10:32]
-** 2nd test note 
-#+begin_src sh
-http://git-scm.com/download
-#+end_src 
-[2012-09-20 Do 10:34]
-** git note from w3m
-#+begin_src sh
-git add README test.rb LICENSE
-git commit -m 'initial commit of my project'
-#+end_src 
-[[http://git-scm.com/book/en/Git-Branching-What-a-Branch-Is][Git]]
-[2012-09-20 Do 10:37]
-
-(set (make-local-variable 'org-refile-targets) (quote (("~/comp_science/notes/git_notes.org" :maxlevel . 1))))
-** test work computer committing
-this should appear
-** install magit
 
 
 * Magit
@@ -298,3 +288,30 @@ M-x magit-status:
 
 ** Reflogs
 - 
+* Captured notes
+** installing git 
+ #+begin_src sh
+$ tar -zxf git-1.7.2.2.tar.gz
+$ cd git-1.7.2.2
+$ make prefix=/usr/local all
+$ sudo make prefix=/usr/local install
+#+end_src 
+
+[2012-09-20 Do 10:32]
+** 2nd test note 
+#+begin_src sh
+http://git-scm.com/download
+#+end_src 
+[2012-09-20 Do 10:34]
+** git note from w3m
+#+begin_src sh
+git add README test.rb LICENSE
+git commit -m 'initial commit of my project'
+#+end_src 
+[[http://git-scm.com/book/en/Git-Branching-What-a-Branch-Is][Git]]
+[2012-09-20 Do 10:37]
+
+(set (make-local-variable 'org-refile-targets) (quote (("~/comp_science/notes/git_notes.org" :maxlevel . 1))))
+** test work computer committing
+this should appear
+** install magit
