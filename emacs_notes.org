@@ -79,3 +79,4 @@ El-get is tool that allows downloading external scripts/extensions for Emacs, in
 and init them, care about load-path and Info-directory-list, byte-compile what should be, manages autoloads, etc.
 [[http://www.emacswiki.org/emacs/el-get]]
 [2012-09-20 Do 19:53]
+* Shortcuts

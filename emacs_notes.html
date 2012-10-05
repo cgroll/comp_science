@@ -1,0 +1,498 @@
+<?xml version="1.0" encoding="iso-8859-1"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
+               "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en">
+<head>
+<title>Learning Emacs</title>
+<meta http-equiv="Content-Type" content="text/html;charset=iso-8859-1"/>
+<meta name="title" content="Learning Emacs"/>
+<meta name="generator" content="Org-mode"/>
+<meta name="generated" content="2012-10-04T08:54+0200"/>
+<meta name="author" content="chris"/>
+<meta name="description" content=""/>
+<meta name="keywords" content=""/>
+<style type="text/css">
+ <!--/*--><![CDATA[/*><!--*/
+  html { font-family: Times, serif; font-size: 12pt; }
+  .title  { text-align: center; }
+  .todo   { color: red; }
+  .done   { color: green; }
+  .tag    { background-color: #add8e6; font-weight:normal }
+  .target { }
+  .timestamp { color: #bebebe; }
+  .timestamp-kwd { color: #5f9ea0; }
+  .right  {margin-left:auto; margin-right:0px;  text-align:right;}
+  .left   {margin-left:0px;  margin-right:auto; text-align:left;}
+  .center {margin-left:auto; margin-right:auto; text-align:center;}
+  p.verse { margin-left: 3% }
+  pre {
+	border: 1pt solid #AEBDCC;
+	background-color: #F3F5F7;
+	padding: 5pt;
+	font-family: courier, monospace;
+        font-size: 90%;
+        overflow:auto;
+  }
+  table { border-collapse: collapse; }
+  td, th { vertical-align: top;  }
+  th.right  { text-align:center;  }
+  th.left   { text-align:center;   }
+  th.center { text-align:center; }
+  td.right  { text-align:right;  }
+  td.left   { text-align:left;   }
+  td.center { text-align:center; }
+  dt { font-weight: bold; }
+  div.figure { padding: 0.5em; }
+  div.figure p { text-align: center; }
+  div.inlinetask {
+    padding:10px;
+    border:2px solid gray;
+    margin:10px;
+    background: #ffffcc;
+  }
+  textarea { overflow-x: auto; }
+  .linenr { font-size:smaller }
+  .code-highlighted {background-color:#ffff00;}
+  .org-info-js_info-navigation { border-style:none; }
+  #org-info-js_console-label { font-size:10px; font-weight:bold;
+                               white-space:nowrap; }
+  .org-info-js_search-highlight {background-color:#ffff00; color:#000000;
+                                 font-weight:bold; }
+  /*]]>*/-->
+</style>
+<script type="text/javascript">
+/*
+@licstart  The following is the entire license notice for the
+JavaScript code in this tag.
+
+Copyright (C) 2012  Free Software Foundation, Inc.
+
+The JavaScript code in this tag is free software: you can
+redistribute it and/or modify it under the terms of the GNU
+General Public License (GNU GPL) as published by the Free Software
+Foundation, either version 3 of the License, or (at your option)
+any later version.  The code is distributed WITHOUT ANY WARRANTY;
+without even the implied warranty of MERCHANTABILITY or FITNESS
+FOR A PARTICULAR PURPOSE.  See the GNU GPL for more details.
+
+As additional permission under GNU GPL version 3 section 7, you
+may distribute non-source (e.g., minimized or compacted) forms of
+that code without the copy of the GNU GPL normally required by
+section 4, provided you include this license notice and a URL
+through which recipients can access the Corresponding Source.
+
+
+@licend  The above is the entire license notice
+for the JavaScript code in this tag.
+*/
+<!--/*--><![CDATA[/*><!--*/
+ function CodeHighlightOn(elem, id)
+ {
+   var target = document.getElementById(id);
+   if(null != target) {
+     elem.cacheClassElem = elem.className;
+     elem.cacheClassTarget = target.className;
+     target.className = "code-highlighted";
+     elem.className   = "code-highlighted";
+   }
+ }
+ function CodeHighlightOff(elem, id)
+ {
+   var target = document.getElementById(id);
+   if(elem.cacheClassElem)
+     elem.className = elem.cacheClassElem;
+   if(elem.cacheClassTarget)
+     target.className = elem.cacheClassTarget;
+ }
+/*]]>*///-->
+</script>
+
+</head>
+<body>
+
+<div id="preamble">
+
+</div>
+
+<div id="content">
+<h1 class="title">Learning Emacs</h1>
+
+<p>#; -*- eval: (setq org-refile-targets (quote (("~/comp<sub>science</sub>/notes/git<sub>notes</sub>.org" :maxlevel . 1)))); -*-
+</p>
+
+
+<div id="table-of-contents">
+<h2>Table of Contents</h2>
+<div id="text-table-of-contents">
+<ul>
+<li><a href="#sec-1">1 Structure</a></li>
+<li><a href="#sec-2">2 Installation</a>
+<ul>
+<li><a href="#sec-2-1">2.1 Problem</a></li>
+<li><a href="#sec-2-2">2.2 GTK+ installation</a></li>
+</ul>
+</li>
+<li><a href="#sec-3">3 org installation</a></li>
+<li><a href="#sec-4">4 ESS installation</a></li>
+<li><a href="#sec-5">5 w3m installation</a></li>
+<li><a href="#sec-6">6 Shortcuts</a>
+<ul>
+<li><a href="#sec-6-1">6.1 Installation</a>
+<ul>
+<li><a href="#sec-6-1-1">6.1.1 shortcuts</a></li>
+</ul>
+</li>
+<li><a href="#sec-6-2">6.2 test header 2</a>
+<ul>
+<li><a href="#sec-6-2-1">6.2.1 2nd lev</a></li>
+</ul></li>
+</ul>
+</li>
+<li><a href="#sec-7">7 Captured notes</a>
+<ul>
+<li><a href="#sec-7-1">7.1 el-get description</a></li>
+</ul>
+</li>
+</ul>
+</div>
+</div>
+
+<div id="outline-container-1" class="outline-2">
+<h2 id="sec-1"><span class="section-number-2">1</span> Structure</h2>
+<div class="outline-text-2" id="text-1">
+
+<p>The general structure here will be as follows:
+</p><ul>
+<li>individual emacs extensions will be covered in extern files
+</li>
+<li>installation instructions will be tackled
+</li>
+<li>one part is for collection of internet resources only
+</li>
+<li>each entry at best shall possess the following attributes:
+<ul>
+<li>correct location in hierarchical structure
+</li>
+<li>shortcut tag in lines containing keyboard bindings
+</li>
+<li>link to original reference
+</li>
+<li>source code block
+</li>
+<li>inactivate timestamp
+</li>
+</ul>
+
+</li>
+<li>inbox bucket for captured notes
+</li>
+<li>future improvement suggestions -&gt; todo items
+</li>
+</ul>
+
+
+</div>
+
+</div>
+
+<div id="outline-container-2" class="outline-2">
+<h2 id="sec-2"><span class="section-number-2">2</span> Installation</h2>
+<div class="outline-text-2" id="text-2">
+
+<ul>
+<li>download emacs-24.2.tar.gz
+</li>
+<li>extract to $HOME (home folder must be visible on right side, without
+  contents)
+</li>
+<li>rename emacs-24.2 to emacs
+</li>
+<li>run configure script using prefix to determine the location of
+  architecture independent files: ./configure &ndash;prefix=$HOME/emacs
+</li>
+<li>make
+</li>
+<li>-&gt; emacs executable should work: try src/emacs -Q
+</li>
+<li>make install
+</li>
+<li>make clean
+</li>
+</ul>
+
+
+</div>
+
+<div id="outline-container-2-1" class="outline-3">
+<h3 id="sec-2-1"><span class="section-number-3">2.1</span> Problem</h3>
+<div class="outline-text-3" id="text-2-1">
+
+<p>Work PC does not automatically support windows, because it does not
+find the right paths. Hence, I had to run the configuration script
+with additional option:
+</p>
+
+
+<pre class="example">./configure --without-x
+</pre>
+
+<p>
+Also, I additional had to install lbincurses with software center even
+prior to ./configure.
+</p>
+</div>
+
+</div>
+
+<div id="outline-container-2-2" class="outline-3">
+<h3 id="sec-2-2"><span class="section-number-3">2.2</span> GTK+ installation</h3>
+<div class="outline-text-3" id="text-2-2">
+
+<p>Problem: my Ubuntu did not include GTK+ by default. Hence, emacs will
+not start in an own window.
+</p><ul>
+<li>libncurses5-dev is needed also
+</li>
+</ul>
+
+
+</div>
+</div>
+
+</div>
+
+<div id="outline-container-3" class="outline-2">
+<h2 id="sec-3"><span class="section-number-2">3</span> org installation</h2>
+<div class="outline-text-2" id="text-3">
+
+<ul>
+<li>download newest stable version from orgmode.org (currently 7.9.1)
+</li>
+<li>follow instructions of org-mode manual, section 1.2: Installation:
+<ul>
+<li>unpack archive to ~/.emacs.d/org 
+</li>
+<li>run <i>make help config</i> to check paths (org shall nevertheless be
+    installed in /usr/share/emacs/site-lisp/org)
+</li>
+<li>adapt paths in local.mk
+</li>
+<li>run <i>make config</i>
+</li>
+<li>run <i>sudo make install</i>
+</li>
+<li>in init.el, add:
+<ul>
+<li>(add-to-list 'load-path "/usr/share/emacs/site-lisp/org")
+</li>
+<li>(require 'org-install)
+</li>
+</ul>
+
+</li>
+<li>if you want to use uncompiled repositories instead:
+<ul>
+<li>(add-to-list 'load-path "~/.emacs.d/org/lisp")
+</li>
+<li>(add-to-list 'load-path "~/.emacs.d/org/contrib/lisp")
+</li>
+<li>(require 'org-install)
+</li>
+</ul>
+
+</li>
+<li>require should automatically load org-mode at startup, which is
+    okay, since I use it always anyway
+</li>
+</ul>
+
+</li>
+</ul>
+
+
+</div>
+
+</div>
+
+<div id="outline-container-4" class="outline-2">
+<h2 id="sec-4"><span class="section-number-2">4</span> ESS installation</h2>
+<div class="outline-text-2" id="text-4">
+
+<ul>
+<li>download ess
+</li>
+<li>extract
+</li>
+<li>move to /usr/share/emacs/site-lisp/ess
+</li>
+<li>in init.el, include
+</li>
+</ul>
+
+
+
+
+<pre class="example">(add-to-list 'load-path "/usr/share/emacs/site-lisp/ess/lisp")
+(require 'ess-site)
+</pre>
+
+</div>
+
+</div>
+
+<div id="outline-container-5" class="outline-2">
+<h2 id="sec-5"><span class="section-number-2">5</span> w3m installation</h2>
+<div class="outline-text-2" id="text-5">
+
+<ul>
+<li>install w3m with emacs-extension from software center
+</li>
+<li>test w3m in terminal
+</li>
+<li>
+</li>
+</ul>
+
+</div>
+
+</div>
+
+<div id="outline-container-6" class="outline-2">
+<h2 id="sec-6"><span class="section-number-2">6</span> Shortcuts</h2>
+<div class="outline-text-2" id="text-6">
+
+
+</div>
+
+<div id="outline-container-6-1" class="outline-3">
+<h3 id="sec-6-1"><span class="section-number-3">6.1</span> Installation</h3>
+<div class="outline-text-3" id="text-6-1">
+
+<ul>
+<li>download auto-complete from <a href="http://cx4a.org/software/auto-complete/">webpage</a>
+</li>
+<li>extract files
+</li>
+</ul>
+
+
+
+
+<pre class="example">tar -xf auto-complet-1.3.1.tar.bz2
+</pre>
+
+<ul>
+<li>in directory:
+</li>
+</ul>
+
+
+
+
+<pre class="example">make byte-compile
+</pre>
+
+<ul>
+<li>make directory at wanted location
+</li>
+</ul>
+
+
+
+
+<pre class="example">mkdir ~/.emacs.d/auto-complete
+</pre>
+
+<ul>
+<li>copy .el and .elc files to directory
+</li>
+</ul>
+
+
+
+
+<pre class="example">cp *.el *.elc ~/.emacs.d/auto-complete
+</pre>
+
+<ul>
+<li>copy dictionary files to directory
+</li>
+</ul>
+
+
+
+
+<pre class="example">cp -r dict ~/.emacs.d/auto-complete 
+</pre>
+
+
+</div>
+
+<div id="outline-container-6-1-1" class="outline-4">
+<h4 id="sec-6-1-1"><span class="section-number-4">6.1.1</span> shortcuts</h4>
+<div class="outline-text-4" id="text-6-1-1">
+
+<p>this is the shortcuts section which will not be shown?
+</p><ul>
+<li id="sec-6-1-1-1">third level<br/>
+ksldjfl
+<ul>
+<li id="sec-6-1-1-1-1">fourth level<br/>
+sdklfjs akdslfj
+</li>
+</ul>
+</li>
+</ul>
+</div>
+</div>
+
+</div>
+
+<div id="outline-container-6-2" class="outline-3">
+<h3 id="sec-6-2"><span class="section-number-3">6.2</span> test header 2</h3>
+<div class="outline-text-3" id="text-6-2">
+
+
+</div>
+
+<div id="outline-container-6-2-1" class="outline-4">
+<h4 id="sec-6-2-1"><span class="section-number-4">6.2.1</span> 2nd lev</h4>
+<div class="outline-text-4" id="text-6-2-1">
+
+<p>skdlfj
+</p>
+</div>
+</div>
+</div>
+
+</div>
+
+<div id="outline-container-7" class="outline-2">
+<h2 id="sec-7"><span class="section-number-2">7</span> Captured notes</h2>
+<div class="outline-text-2" id="text-7">
+
+
+</div>
+
+<div id="outline-container-7-1" class="outline-3">
+<h3 id="sec-7-1"><span class="section-number-3">7.1</span> el-get description</h3>
+<div class="outline-text-3" id="text-7-1">
+
+<p>El-get is tool that allows downloading external scripts/extensions for Emacs, install them for you, knows how to update them
+and init them, care about load-path and Info-directory-list, byte-compile what should be, manages autoloads, etc.
+<a href="http://www.emacswiki.org/emacs/el-get">http://www.emacswiki.org/emacs/el-get</a>
+ <span class="timestamp-wrapper"> <span class="timestamp">2012-09-20 Do 19:53</span></span><br/>
+</p></div>
+</div>
+</div>
+</div>
+
+<div id="postamble">
+<p class="date">Date: 2012-10-04T08:54+0200</p>
+<p class="author">Author: chris</p>
+<p class="creator"><a href="http://orgmode.org">Org</a> version 7.9.2 with <a href="http://www.gnu.org/software/emacs/">Emacs</a> version 23</p>
+<a href="http://validator.w3.org/check?uri=referer">Validate XHTML 1.0</a>
+
+</div>
+</body>
+</html>
