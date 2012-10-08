@@ -1,0 +1,46 @@
+#+TITLE: Secure connections through ssh
+
+* [[http://www.lrz.de/services/pki/einf/][Encryption and security: LRZ]]
+** Goals
+- privacy: make message unreadable to third persons
+- authentification: is the specified sender the real sender
+- unchanged: guarantee unchanged and unmanipulated messages
+
+
+* Telnet 
+- everything that you send or receive over that telnet
+  session is visible in plain text on your local network
+- anyone who can "sniff" the connection in-between can see
+  your username, password
+
+* VPN 
+** Definition
+- virtual private network
+- build secure connection via open and unsecured network
+** Installation
+- go to https://asa-cluster.lrz.de
+- type in username and password
+- if automatic installation fails, follow linux link
+- download sh script
+- execute script
+#+BEGIN_SRC sh
+  sudo sh vpnsetup.sh
+#+END_SRC
+
+* SSH
+** Range of applications
+- connect to remote machine
+- secure file transfer
+- X session forwarding
+
+** Encryption levels
+- different forms of encryption: 512 to 23768 bits
+- higher bits will slow down connection
+
+** Connecting to remote machine
+- connect to remote machine
+#+BEGIN_SRC sh
+ssh username@servername.stat.uni-muenchen.de
+#+END_SRC
+- first time: RSA key fingerprint has to be confirmed
+- 
