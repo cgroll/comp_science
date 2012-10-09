@@ -63,6 +63,21 @@ via browser: firefox addon
 ** okular
 ** mendeley desktop
 via homepage: links to Software Center
+** anyconnect client
+- got to [[https://www.lrz.de/services/netz/mobil/vpn/anyconnect/][lrz vpn homepage]]
+- trust lrz certificate LRZ-CA-G01
+- click link to asa-cluster.lrz.de
+- if automatic installation fails, click Linux i386 link
+- save file
+#+BEGIN_SRC sh
+  sudo sh vpnsetup.sh
+#+END_SRC
+** texlive
+#+BEGIN_SRC sh
+  sudo apt-get install texlive-full
+  sudo apt-get install latex-beamer
+#+END_SRC
+
 ** gnutls
 via Software Center, install "gnutls-bin". This is required to savely
 connect to some email providers. For example, my work email address
@@ -99,6 +114,20 @@ additional installation.
   make && sudo make install
 #+END_SRC
 - delete tar and extracted folder
+** auctex
+- download tar from [[http://www.gnu.org/software/auctex/download-for-unix.html][webpage]]
+- extract tar
+#+BEGIN_SRC sh
+  tar -xf auctex-11.86.tar.gz
+#+END_SRC
+- install
+#+BEGIN_SRC sh
+  ./configure
+  make
+  sudo make install
+#+END_SRC
+** reftex
+
 * Get emacs settings
 - if required, create .emacs.d directory in home directory
 #+BEGIN_SRC sh
