@@ -84,6 +84,16 @@ connect to some email providers. For example, my work email address
 is handled by LRZ, and I was not able to send mails without this
 additional installation.
 
+** ghostscript                                                     :noexport:
+- download from [[http://www.ghostscript.com/download/][webpage]]
+- extract tar
+#+BEGIN_SRC sh
+  tar -xf ghostscript-9.06-linux-x86.tar.gz
+#+END_SRC
+   SCHEDULED: <2012-10-07 Sun>
+   CLOCK: [2012-10-07 Sun 11:20]--[2012-10-07 Sun 11:21] =>  0:01
+Added: [2012-10-07 Sun 11:20]
+
 * Install Emacs extensions
 ** org-mode
 - download tar file from orgmode.org
@@ -143,6 +153,7 @@ additional installation.
   ln -s ~/Dropbox/personal_data/ntb_dot_files/.authinfo
   ln -s ~/Dropbox/personal_data/ntb_dot_files/.gnus
   ln -s ~/Dropbox/personal_data/ntb_dot_files/.bbdb
+  ln -s ~/Dropbox/personal_data/ntb_dot_files/.newsrc
   ln -s ~/Dropbox/personal_data/org/
 #+END_SRC
 * Get software knowledge database
