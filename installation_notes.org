@@ -41,6 +41,26 @@ Windows installation.
   - Alt-L
   - Alt-Space
 
+** Mount extern files system from server
+- create directory and assign permissions (examplary for user chris)
+#+BEGIN_SRC sh 
+  sudo mkdir /media/server_name
+  sudo chown chris /media/server_name
+  sudo adduser chris fuse
+#+END_SRC
+- install sshfs
+#+BEGIN_SRC sh
+  sudo apt-get install sshfs
+#+END_SRC
+- mount extern filesystem at specified mounting point
+#+BEGIN_SRC sh
+  sshfs username_at_server@server_name:/path/to/extern/folder /media/server_name
+#+END_SRC
+- Remark: it could be necessary to establish a VPN connection first!
+- unmounting
+#+BEGIN_SRC sh
+  fusermount -u /media/server_name
+#+END_SRC
 * Install additional software
 ** Git
 via console:
@@ -137,7 +157,45 @@ Added: [2012-10-07 Sun 11:20]
   sudo make install
 #+END_SRC
 ** reftex
-
+** [[http://blogs.mathworks.com/community/2009/09/14/matlab-emacs-integration-is-back/][matlab-emacs]]
+*** get [[http://cedet.sourceforge.net/][cedet]]
+- download tar from [[http://cedet.sourceforge.net/][webpage]]
+- change into ~/.emacs.d/extensions/
+#+BEGIN_SRC sh
+tar -xf ~/Downloads/cedet-1.1.tar.gz
+#+END_SRC
+*** get cvs
+#+BEGIN_SRC sh
+sudo apt-get install cvs
+#+END_SRC
+*** install matlab-emacs
+- change directory to ~/Downloads/
+- get matlab-emacs via cvs
+#+BEGIN_SRC sh
+  cvs -z3 -d:pserver:anonymous@matlab-emacs.cvs.sourceforge.net:/cvsroot/matlab-emacs co -P matlab-emacs
+#+END_SRC
+- copy matlab-emacs to ~/.emacs.d/extensions/
+#+BEGIN_SRC sh
+  mv matlab-emacs ~/.emacs.d/extensions/
+#+END_SRC
+- build matlab with correct path to cedet
+#+BEGIN_SRC sh
+  sudo make "LOADPATH=~/.emacs.d/extensions/cedet-1.1/common ~/.emacs.d/extensions/cedet-1.1/eieio ~/.emacs.d/extensions/cedet-1.1/semantic/bovine/ ~/.emacs.d/extensions/cedet-1.1/semantic/"
+#+END_SRC
+*** set up remote matlab according to [[http://stackoverflow.com/questions/1133498/is-it-possible-for-emacs-to-run-a-matlab-shell-that-is-located-on-a-remote-serve][stackoverflow]]
+- create sh script pointing to matlab on server
+#+BEGIN_EXAMPLE
+  #!/bin/bash
+  ssh username@hostname matlab -nodisplay
+#+END_EXAMPLE
+- change line 4149 in matlab.el: instead of
+#+BEGIN_SRC emacs-lisp
+(defcustom matlab-shell-command "matlab"
+#+END_SRC
+write 
+#+BEGIN_SRC emacs-lisp
+(defcustom matlab-shell-command "~/Dropbox/personal_data/remote_matlab"   
+#+END_SRC
 * Get emacs settings
 - if required, create .emacs.d directory in home directory
 #+BEGIN_SRC sh
