@@ -98,6 +98,18 @@ via homepage: links to Software Center
   sudo apt-get install latex-beamer
 #+END_SRC
 
+** R project
+- get R base via command line
+#+BEGIN_SRC sh
+sudo apt-get update
+sudo apt-get install r-base
+#+END_SRC
+
+** LyX
+- via software manager
+- setup own shortcuts:
+  - tools / preferences / editing / shortcuts / bind file
+  - choose: ~/Dropbox/personal_data/lyx_customized_bindings.bind
 ** gnutls
 via Software Center, install "gnutls-bin". This is required to savely
 connect to some email providers. For example, my work email address
@@ -157,6 +169,21 @@ Added: [2012-10-07 Sun 11:20]
   sudo make install
 #+END_SRC
 ** reftex
+** bbdb
+- change to ~/.emacs.d/extensions/
+- download from cvs
+#+BEGIN_SRC emacs-lisp
+  cvs -d :pserver:anonymous@bbdb.cvs.sourceforge.net:/cvsroot/bbdb login
+  cvs -d :pserver:anonymous@bbdb.cvs.sourceforge.net:/cvsroot/bbdb checkout bbdb
+#+END_SRC
+- go to ~/.emacs.d/extensions/bbdb/
+- build bbdb
+#+BEGIN_SRC emacs-lisp
+  autoconf
+  ./configure
+  make autoloads
+  make all
+#+END_SRC
 ** [[http://blogs.mathworks.com/community/2009/09/14/matlab-emacs-integration-is-back/][matlab-emacs]]
 *** get [[http://cedet.sourceforge.net/][cedet]]
 - download tar from [[http://cedet.sourceforge.net/][webpage]]
@@ -178,6 +205,7 @@ sudo apt-get install cvs
 #+BEGIN_SRC sh
   mv matlab-emacs ~/.emacs.d/extensions/
 #+END_SRC
+- change to ~/.emacs.d/extensions/matlab-emacs/
 - build matlab with correct path to cedet
 #+BEGIN_SRC sh
   sudo make "LOADPATH=~/.emacs.d/extensions/cedet-1.1/common ~/.emacs.d/extensions/cedet-1.1/eieio ~/.emacs.d/extensions/cedet-1.1/semantic/bovine/ ~/.emacs.d/extensions/cedet-1.1/semantic/"
@@ -196,7 +224,7 @@ write
 #+BEGIN_SRC emacs-lisp
 (defcustom matlab-shell-command "~/Dropbox/personal_data/remote_matlab"   
 #+END_SRC
-* Get emacs settings
+* Get personal emacs settings
 - if required, create .emacs.d directory in home directory
 #+BEGIN_SRC sh
   mkdir .emacs.d
