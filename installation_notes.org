@@ -241,6 +241,7 @@ write
   ln -s ~/Dropbox/personal_data/ntb_dot_files/.bbdb
   ln -s ~/Dropbox/personal_data/ntb_dot_files/.newsrc
   ln -s ~/Dropbox/personal_data/org/
+  ln -s ~/Dropbox/personal_data/ntb_dot_files/.Renviron
 #+END_SRC
 * Get software knowledge database
 - go to home directory
