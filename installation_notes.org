@@ -81,6 +81,18 @@ via Software Center
 ** firemacs
 via browser: firefox addon
 ** okular
+- via software center
+- make okular default pdf viewer:
+  - right click on any pdf-file
+  - properties
+  - open with
+  - select okular
+  - set as default
+- create common backup folder for annotations
+#+BEGIN_SRC sh
+  rmdir ~/.kde/share/apps/okular/docdata
+  ln -s ~/Dropbox/personal_data/okular_annotations/ ~/.kde/share/apps/okular/docdata 
+#+END_SRC
 ** mendeley desktop
 via homepage: links to Software Center
 ** anyconnect client
@@ -242,8 +254,10 @@ write
   ln -s ~/Dropbox/personal_data/ntb_dot_files/.newsrc
   ln -s ~/Dropbox/personal_data/org/
   ln -s ~/Dropbox/personal_data/ntb_dot_files/.Renviron
+  rmdir ~/Downloads/
+  ln -s ~/Dropbox/Downloads/
 #+END_SRC
-* Get software knowledge database
+* Get computational science knowledge database
 - go to home directory
 #+BEGIN_SRC sh
   git clone https://github.com/cgroll/comp_science
