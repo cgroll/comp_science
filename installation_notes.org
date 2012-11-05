@@ -61,6 +61,14 @@ Windows installation.
 #+BEGIN_SRC sh
   fusermount -u /media/server_name
 #+END_SRC
+** Install printer
+- in firefox, open http://localhost:631/
+- choose:
+  - Lexmark Lexmark E462dtn for secretariat (probably number 4??)
+    - modify default page size
+  - Lexmark E460dw (I tried up to 7, inclusive)
+  - Lexmark C935 (color, christa)
+  - Lexmark T654 (black/white, christa)
 * Install additional software
 ** Git
 via console:
@@ -128,6 +136,17 @@ connect to some email providers. For example, my work email address
 is handled by LRZ, and I was not able to send mails without this
 additional installation.
 
+** Matlab
+*** installation
+- login on Matlab webpage
+- download installation file
+- follow instructions
+*** bash shell alias
+for more convenient startup from shell, create alias to start with "matlab":
+- in ~/.bashrc, insert 
+#+BEGIN_SRC sh
+alias matlab='sh ~/MATLAB/R2012a/bin/matlab'
+#+END_SRC
 ** ghostscript                                                     :noexport:
 - download from [[http://www.ghostscript.com/download/][webpage]]
 - extract tar
@@ -223,7 +242,7 @@ sudo apt-get install cvs
   sudo make "LOADPATH=~/.emacs.d/extensions/cedet-1.1/common ~/.emacs.d/extensions/cedet-1.1/eieio ~/.emacs.d/extensions/cedet-1.1/semantic/bovine/ ~/.emacs.d/extensions/cedet-1.1/semantic/"
 #+END_SRC
 *** set up remote matlab according to [[http://stackoverflow.com/questions/1133498/is-it-possible-for-emacs-to-run-a-matlab-shell-that-is-located-on-a-remote-serve][stackoverflow]]
-- create sh script pointing to matlab on server
+- create sh script "remote_matlab" pointing to matlab on server
 #+BEGIN_EXAMPLE
   #!/bin/bash
   ssh username@hostname matlab -nodisplay
