@@ -22,6 +22,8 @@ Therefore, I should make too public dropbox folders similarly to my
 own private data files, containing some examblary settings.
 
 
+* Ubuntu deinstallation from Windows
+- 
 
 * Ubuntu installation
 The installation described will use Ubuntu alongside an existing
