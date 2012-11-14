@@ -20,7 +20,9 @@ working similar working environment, too. This could be used to set
 up an identical environment for others.
 Therefore, I should make too public dropbox folders similarly to my
 own private data files, containing some examblary settings.
-
+** TODO Mark sections as private
+Mark sections as private that do rely on my personal settings and
+private data structure (dropbox, monitor settings, ...)
 
 * Ubuntu uninstallation from Windows
 - in windows, right-click on computer
@@ -74,6 +76,31 @@ Windows installation.
   - Lexmark E460dw (I tried up to 7, inclusive)
   - Lexmark C935 (color, christa)
   - Lexmark T654 (black/white, christa)
+* Monitor installation
+- my monitor properties are:
+1680x1050, 60Hz via VGA1
+[[http://wiki.ubuntuusers.de/RandR][description using randr]]:
+- query, whether correct properties are automatically recognized:
+#+BEGIN_SRC sh
+xrandr --query
+#+END_SRC
+- let terminal display correct syntax for my settings:
+#+BEGIN_SRC sh
+cvt 1680 1050 60
+#+END_SRC
+- this will show:
+Modeline "1680x1050_60.00"  146.25  1680 1784 1960 2240  1050 1053
+1059 1089 -hsync +vsync 
+- type:
+#+BEGIN_SRC sh
+  cd
+  xrandr --newmode "1680x1050_60.00"  146.25  1680 1784 1960 2240  1050 1053 1059 1089 -hsync +vsync
+  xrandr --addmode VGA1 "1680x1050_60.00"
+  xrandr --output VGA1 --mode "1680x1050_60.00"
+#+END_SRC
+
+#+RESULTS:
+
 * Install additional software
 ** Git
 via console:
@@ -91,8 +118,10 @@ via Software Center
   - install dropbox correctly
   - copy-paste instructions from webpage
 ** emacs
+Open emacs once, so that .emacs.d folder will be set up
 ** firemacs
-via browser: firefox addon
+- via browser: firefox addon
+- modify privacy settings: clear cookies each time firefox is closed
 ** okular
 - via software center
 - make okular default pdf viewer:
@@ -135,6 +164,11 @@ sudo apt-get install r-base
 - setup own shortcuts:
   - tools / preferences / editing / shortcuts / bind file
   - choose: ~/Dropbox/personal_data/lyx_customized_bindings.bind
+
+** CVS
+#+BEGIN_SRC sh
+  sudo apt-get install cvs
+#+END_SRC
 ** gnutls
 via Software Center, install "gnutls-bin". This is required to savely
 connect to some email providers. For example, my work email address
@@ -161,6 +195,27 @@ alias matlab='sh ~/MATLAB/R2012a/bin/matlab'
    SCHEDULED: <2012-10-07 Sun>
    CLOCK: [2012-10-07 Sun 11:20]--[2012-10-07 Sun 11:21] =>  0:01
 Added: [2012-10-07 Sun 11:20]
+* Get personal emacs settings
+- if required, create .emacs.d directory in home directory
+#+BEGIN_SRC sh
+  mkdir .emacs.d
+#+END_SRC
+- change directory to .emacs.d
+- clone git repository
+#+BEGIN_SRC sh
+  git clone https://github.com/cgroll/dot_emacs.d.git .
+#+END_SRC
+- set symbolic links to personal data files
+#+BEGIN_SRC sh
+  ln -s ~/Dropbox/personal_data/ntb_dot_files/.authinfo
+  ln -s ~/Dropbox/personal_data/ntb_dot_files/.gnus
+  ln -s ~/Dropbox/personal_data/ntb_dot_files/.bbdb
+  ln -s ~/Dropbox/personal_data/ntb_dot_files/.newsrc
+  ln -s ~/Dropbox/personal_data/org/
+  ln -s ~/Dropbox/personal_data/ntb_dot_files/.Renviron
+  rmdir ~/Downloads/
+  ln -s ~/Dropbox/Downloads/
+#+END_SRC
 
 * Install Emacs extensions
 ** org-mode
@@ -259,27 +314,6 @@ sudo apt-get install cvs
 write 
 #+BEGIN_SRC emacs-lisp
 (defcustom matlab-shell-command "~/Dropbox/personal_data/remote_matlab"   
-#+END_SRC
-* Get personal emacs settings
-- if required, create .emacs.d directory in home directory
-#+BEGIN_SRC sh
-  mkdir .emacs.d
-#+END_SRC
-- change directory to .emacs.d
-- clone git repository
-#+BEGIN_SRC sh
-  git clone https://github.com/cgroll/dot_emacs.d.git .
-#+END_SRC
-- set symbolic links to personal data files
-#+BEGIN_SRC sh
-  ln -s ~/Dropbox/personal_data/ntb_dot_files/.authinfo
-  ln -s ~/Dropbox/personal_data/ntb_dot_files/.gnus
-  ln -s ~/Dropbox/personal_data/ntb_dot_files/.bbdb
-  ln -s ~/Dropbox/personal_data/ntb_dot_files/.newsrc
-  ln -s ~/Dropbox/personal_data/org/
-  ln -s ~/Dropbox/personal_data/ntb_dot_files/.Renviron
-  rmdir ~/Downloads/
-  ln -s ~/Dropbox/Downloads/
 #+END_SRC
 * Get computational science knowledge database
 - go to home directory
