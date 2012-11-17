@@ -224,9 +224,11 @@ Added: [2012-10-07 Sun 11:20]
 #+BEGIN_SRC sh  
   tar -xf org-7.9.2.tar.gz
   rm org-7.9.2.tar.gz
+  mv org-7.9.2 ~/.emacs.d/extensions/org
 #+END_SRC
 - change into extracted folder
 #+BEGIN_SRC sh  
+  cd ~/.emacs.d/extensions/org
   sudo make install
   sudo rm -r org-7.9.2
 #+END_SRC
@@ -314,6 +316,11 @@ sudo apt-get install cvs
 write 
 #+BEGIN_SRC emacs-lisp
 (defcustom matlab-shell-command "~/Dropbox/personal_data/remote_matlab"   
+#+END_SRC
+** flyspell
+- install German dictionary:
+#+BEGIN_SRC sh
+  sudo apt-get install aspell-de
 #+END_SRC
 * Get computational science knowledge database
 - go to home directory
