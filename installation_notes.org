@@ -241,6 +241,13 @@ Added: [2012-10-07 Sun 11:20]
 #+END_SRC
 - option -C is necessary to extract to folder other than current
   directory 
+*** ess-r-object-tooltip
+- note: due to required changes, the file is added to my .emacs.d git
+  repo!
+- go to [[https://gist.github.com/305561][homepage]]
+- download file and extract to .emacs.d/extensions/
+- due to changes in ess, modifications of the file may be required
+- new versions usually can be found in comments at bottom of [[http://www.sigmafield.org/2009/10/01/r-object-tooltips-in-ess][sigmafield]]
 ** magit
 - download tar from github
 - extract tar
