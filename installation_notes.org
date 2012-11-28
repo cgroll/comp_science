@@ -107,6 +107,17 @@ via console:
 #+BEGIN_SRC sh  
   sudo apt-get install git-core
 #+END_SRC
+*** enable public key authentication
+Follow instructions on [[https://help.github.com/articles/generating-ssh-keys][github]]
+If no ssh-key exists yet:
+#+BEGIN_SRC sh
+  ssh-keygen -t rsa -C "youremail@adress.com"
+#+END_SRC
+Otherwise, save as id_rsa2.pub or something similar. If overall
+procedure fails, try 
+#+BEGIN_SRC sh
+  ssh-add
+#+END_SRC
 ** w3m
 via Software Center, install
 - w3m
