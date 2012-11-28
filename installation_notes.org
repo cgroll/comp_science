@@ -107,6 +107,9 @@ via console:
 #+BEGIN_SRC sh  
   sudo apt-get install git-core
 #+END_SRC
+for changing https connection into ssh, take a look at [[https://help.github.com/articles/why-is-git-always-asking-for-my-password][description on
+webpage]] 
+
 ** w3m
 via Software Center, install
 - w3m
