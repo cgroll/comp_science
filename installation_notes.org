@@ -344,9 +344,26 @@ write
 #+BEGIN_SRC sh
   sudo apt-get install aspell-de
 #+END_SRC
+** yasnippet
+Remakr: Instructions here are not complete! With default settings,
+yasnippet does not comply with auto-complete settings! I had to make
+some ad-hoc modifications, so that I now refrain from manually
+installing it from scratch up, and have included it into a git-repo.
+Nevertheless, some installation instructions are given below:
+- install yasnippet from git repo:
+#+BEGIN_SRC sh  
+  cd ~/.emacs.d/extensions
+  git clone https://github.com/capitaomorte/yasnippet
+#+END_SRC
+- extend with latex snippets: 
+- download zip-file from [[https://github.com/madsdk/yasnippets-latex/][git-repo]]
+- extract anywhere, copy files into
+  .emacs.d/extensions/yasnippet/snippets/latex-mode
+- if emacs is currently running: yas/reload-all
 * Get computational science knowledge database
 - go to home directory
 #+BEGIN_SRC sh
   git clone https://github.com/cgroll/comp_science
 #+END_SRC
+
 
