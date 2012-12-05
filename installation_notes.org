@@ -122,6 +122,11 @@ procedure fails, try
   ssh-add
 #+END_SRC
 
+** Bitbucket
+enable ssh authentication on webpage:
+- manage account / ssh keys
+- copy public key to clipboard: xclip -sel clip < ~/.ssh/id_rsa.pub
+- paste key on webpage
 ** w3m
 via Software Center, install
 - w3m
@@ -247,6 +252,8 @@ Added: [2012-10-07 Sun 11:20]
   sudo make install
   sudo rm -r org-7.9.2
 #+END_SRC
+** auto-complete
+through git
 ** ESS
 - download tar file from webpage
 - change directory to download folder
