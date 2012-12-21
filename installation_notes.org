@@ -308,6 +308,12 @@ through git
 #+END_SRC
 ** [[http://blogs.mathworks.com/community/2009/09/14/matlab-emacs-integration-is-back/][matlab-emacs]]
 *** get [[http://cedet.sourceforge.net/][cedet]]
+Be careful: there are newer versions of cedet that will not work with
+matlab-emacs yet. Cedet will be part of emacs-24, and therefore had
+to change some file names. This is not corrected in matlab-emacs yet.
+If you get some errors relating to something like semanticdb-search,
+it could mean that your cedet version is already too new. Stable
+version 1.1 did still work, current development head not.
 - download tar from [[http://cedet.sourceforge.net/][webpage]]
 - change into ~/.emacs.d/extensions/
 #+BEGIN_SRC sh

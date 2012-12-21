@@ -1,6 +1,22 @@
 #+TITLE: Learning Emacs
 
 
+* Main advantages
+- auto-completion:
+  - English word list for emails
+  - latex commands
+  - programming languages: variables and functions
+  - file names
+- faster file switching: select buffers with completion
+- mix formulas and code (even of different languages)
+- programming tools:
+  - on the fly information on variables and function arguments
+  - extended motion and searching capabilities
+  - debugging capabilities
+- spell-checking, translation and thesaurus on the fly
+- highly configurable task manager
+- magit, ediff, ...
+
 * Structure
 The general structure here will be as follows:
 - individual emacs extensions will be covered in extern files
@@ -41,7 +57,7 @@ Problem: my Ubuntu did not include GTK+ by default. Hence, emacs will
 not start in an own window.
 - libncurses5-dev is needed also
  
-* org installation
+* org installation                                                :org:emacs:
 - download newest stable version from orgmode.org (currently 7.9.1)
 - follow instructions of org-mode manual, section 1.2: Installation:
   - unpack archive to ~/.emacs.d/org 
@@ -73,6 +89,32 @@ not start in an own window.
 - install w3m with emacs-extension from software center
 - test w3m in terminal
 - 
+* Creating Etags
+** Creation of etags for matlab files in research folder
+- switch to project directory: M-x cd RET
+  ~/Dropbox/research_current_ntb_head/ RET
+- use etags to create TAGS file with relative paths:
+  - press M-!
+  - yank:
+etags -o ./TAGS  \
+    --lang=none \
+    --regex='/[ \t]*function.*=[ \t]*\([^ \t(]*\)/\1/' \
+    --regex='/[ \t]*function[ \t]+\([^[ \t=(]*\)[ \t]*\($\|(\)/\1/' \
+    --regex='/%%%key \(.*\)/\1/' \
+    --regex='/[ \t]*global[ \t]+\([^ \t]+\)/\1/' \
+    --regex='/[ \t]*global[ \t]+\([^ \t]+[ \t]+\)\{1\}\([^ \t]+\)/\2/' \
+    --regex='/[ \t]*global[ \t]+\([^ \t]+[ \t]+\)\{2\}\([^ \t]+\)/\2/' \
+    --regex='/[ \t]*global[ \t]+\([^ \t]+[ \t]+\)\{3\}\([^ \t]+\)/\2/' \
+    --regex='/[ \t]*global[ \t]+\([^ \t]+[ \t]+\)\{4\}\([^ \t]+\)/\2/' \
+    --regex='/[ \t]*global[ \t]+\([^ \t]+[ \t]+\)\{5\}\([^ \t]+\)/\2/' \
+    --regex='/[ \t]*global[ \t]+\([^ \t]+[ \t]+\)\{6\}\([^ \t]+\)/\2/' \
+    --regex='/[ \t]*global[ \t]+\([^ \t]+[ \t]+\)\{7\}\([^ \t]+\)/\2/' \
+    --regex='/[ \t]*global[ \t]+\([^ \t]+[ \t]+\)\{8\}\([^ \t]+\)/\2/' \
+    --regex='/[ \t]*global[ \t]+\([^ \t]+[ \t]+\)\{9\}\([^ \t]+\)/\2/' \
+    `find . -follow -name "*.m"`
+- this will leave you with tags table file in
+  ~/Dropbox/research_current_ntb_head/TAGS 
+- tags table has to be loaded with M-x visit-tags-table first
 * Captured notes
 ** el-get description
 El-get is tool that allows downloading external scripts/extensions for Emacs, install them for you, knows how to update them
